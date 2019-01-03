@@ -1,5 +1,6 @@
 let express = require('express')
-let bodyParser = require('body-parser') const request = require('request')
+let bodyParser = require('body-parser')
+let request = require('request')
 let apiai = require('apiai');
 let app = express()
 app.set('port', (process.env.PORT || 5001)) app.use(bodyParser.urlencoded({
