@@ -3,10 +3,12 @@ let bodyParser = require('body-parser')
 let request = require('request')
 let apiai = require('apiai');
 let app = express()
-app.set('port', (process.env.PORT || 5001)) app.use(bodyParser.urlencoded({
+app.set('port', (process.env.PORT || 5001))
+app.use(bodyParser.urlencoded({
   extended: false
 }))
-app.use(bodyParser.json()) app.get('/', function(req, res) {
+app.use(bodyParser.json())
+app.get('/', function(req, res) {
   res.send('Hello world')
 })
 app.get('/webhook/', function(req, res) {
