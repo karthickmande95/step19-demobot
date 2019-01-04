@@ -20,7 +20,7 @@ app.post('/webhook', function(req, res) {
     var senderID = event.sender.id;
     if (event.message && event.message.text) {
       var messageText = event.message.text;
-      console.log("senderID" + senderID + "messageText" + messageT ext);
+      console.log("senderID" + senderID + "messageText" + messageText);
       // var apiaiClientAccessToken = "YOUR_DIALOG_FLOW_CLENT_ACCESS_TOKEN";
       var apiaiClientAccessToken = "b93b7f46074e441fbb585c993c2ec1f7";
       var app = apiai(apiaiClientAccessToken);
