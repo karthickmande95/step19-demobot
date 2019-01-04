@@ -13,6 +13,7 @@ app.use(bodyParser.json())
 app.get('/', function(req, res) {
   res.send('Hello world')
 })
+
 app.post('/webhook', function(req, res) {
   var messaging_events = req.body.entry[0].messaging;
   for (var i = 0; i < messaging_events.length; i++) {
@@ -21,8 +22,7 @@ app.post('/webhook', function(req, res) {
     if (event.message && event.message.text) {
       var messageText = event.message.text;
       console.log("senderID" + senderID + "messageText" + messageT ext);
-      // var apiaiClientAccessToken = "YOUR_DIALOG_FLOW_CLENT_ACCESS_TOKEN";
-      var apiaiClientAccessToken = "b93b7f46074e441fbb585c993c2ec1f7";
+      var apiaiClientAccessToken = "YOUR_DIALOG_FLOW_CLENT_ACCESS_TOKEN"; //replace your dialog flow access token
       var app = apiai(apiaiClientAccessToken);
       var responseJSON = {};
       var request = app.textRequest(messageText, {
