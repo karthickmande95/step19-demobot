@@ -20,7 +20,7 @@ app.post('/webhook', function(req, res) {
     var senderID = event.sender.id;
     if (event.message && event.message.text) {
       var messageText = event.message.text;
-      console.log("senderID" + senderID + "messageText" + messageT ext);
+      console.log("senderID" + senderID + "messageText" + messageText);
       sendTextMessage(senderID, messageText);
     }
   }
