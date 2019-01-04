@@ -20,8 +20,22 @@ app.post('/webhook', function(req, res) {
     var senderID = event.sender.id;
     if (event.message && event.message.text) {
       var messageText = event.message.text;
-      console.log("senderID" + senderID + "messageText" + messageText);
-      sendTextMessage(senderID, messageText);
+      console.log("senderID" + senderID + "messageText" + messageT ext);
+      // var apiaiClientAccessToken = "YOUR_DIALOG_FLOW_CLENT_ACCESS_TOKEN";
+      var apiaiClientAccessToken = "b93b7f46074e441fbb585c993c2ec1f7";
+      var app = apiai(apiaiClientAccessToken);
+      var responseJSON = {};
+      var request = app.textRequest(messageText, {
+        sessionId: "sessionId"
+      });
+      request.on('response', function(response) {
+        messageText = response.result.fulfillment.speech;
+        sendTextMessage(senderID, messageText);
+      });
+      request.on('error', function(error) {
+        sendTextMessage(senderID, messageText);
+      });
+      request.end();
     }
   }
   res.sendStatus(200);
