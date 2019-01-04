@@ -29,7 +29,7 @@ app.post('/webhook', function(req, res) {
           break;
         default:
           console.log("senderID" + senderID + "messageText" + messageText);
-          // var apiaiClientAccessToken = "YOUR_DIALOG_FLOW_CLENT_ACCESS_TOKEN";
+          var apiaiClientAccessToken = "YOUR_DIALOG_FLOW_CLENT_ACCESS_TOKEN"; //replace your dialog flow access token
           var app = apiai(apiaiClientAccessToken);
           var responseJSON = {};
           var request = app.textRequest(messageText, {
