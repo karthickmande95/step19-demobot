@@ -1,8 +1,10 @@
-let express = require('express')
-let bodyParser = require('body-parser')
-let request = require('request')
-let apiai = require('apiai');
-let app = express()
+const express = require('express')
+const bodyParser = require('body-parser')
+const request = require('request')
+const apiai = require('apiai');
+const app = express()
+const access=process.env.FB_ACCESS_TOKEN
+
 app.set('port', (process.env.PORT || 5001))
 app.use(bodyParser.urlencoded({
   extended: false
